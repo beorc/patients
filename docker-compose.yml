@@ -2,13 +2,13 @@ version: "3.6"
 services:
   app:
     build: .
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
     depends_on:
       - pg
     volumes:
       - .:/usr/src/app
+    ports:
+      - "31337:31337"
+      - "8080:8080"
   pg:
     image: postgres:13.2-alpine
     environment:
